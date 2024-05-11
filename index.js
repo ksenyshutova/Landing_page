@@ -11,17 +11,17 @@ const mainContainer = document.querySelector('.main_container');
 const subordinateContainer = document.querySelector('.subordinate_container');
 const participants = document.querySelector('.participants');
 
-thought.addEventListener('click', event => {
-    event.preventDefault();
-    document.querySelector('.lecture').scrollIntoView({ behavior: 'smooth' });
-});
-
-tournament.addEventListener('click', event => {
-    event.preventDefault();
-    document.querySelector('.session').scrollIntoView({ behavior: 'smooth' });
-});
-
 if (window.screen.width > 640) {
+    thought.addEventListener('click', event => {
+        event.preventDefault();
+        document.querySelector('.lecture').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    tournament.addEventListener('click', event => {
+        event.preventDefault();
+        document.querySelector('.session').scrollIntoView({ behavior: 'smooth' });
+    });
+
     function changeValue() {
         if (btn.innerHTML === '3') {
             btn.textContent = '6';
@@ -79,6 +79,16 @@ if (window.screen.width <= 640) {
     mainContainer.innerHTML = `<h2 class="lecture title_main_post">Чтобы поддержать Международный васюкинский турнир</h2><img class="size_picture" src="images/people.png" alt="chessplayers"><h2 class="title_main_post">посетите лекцию на
 тему: <a class="idea_link" href="#0">«Плодотворная дебютная идея»</a></h2>`;
 
+    thought.addEventListener('touchend', event => {
+        event.preventDefault();
+        document.querySelector('.lecture').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    tournament.addEventListener('touchend', event => {
+        event.preventDefault();
+        document.querySelector('.session').scrollIntoView({ behavior: 'smooth' });
+    });
+
     let counter = 0;
     participants.append(arrow);
 
@@ -101,7 +111,7 @@ if (window.screen.width <= 640) {
         person[counter].classList.add('person_active');
     }
 
-    leftArrow.addEventListener('click', event => {
+    leftArrow.addEventListener('touchend', event => {
         event.preventDefault();
         clearInterval(timer);
         counter = Number(btn.innerHTML) - 1;
@@ -119,7 +129,7 @@ if (window.screen.width <= 640) {
         makeTimer();
     });
 
-    rightArrow.addEventListener('click', event => {
+    rightArrow.addEventListener('touchend', event => {
         event.preventDefault();
         clearInterval(timer);
         counter = Number(btn.innerHTML) - 1;
@@ -200,7 +210,7 @@ if (window.screen.width <= 640) {
     const history = Array.from(document.querySelectorAll('.history'));
 
     let count = 0;
-    prev.addEventListener('click', event => {
+    prev.addEventListener('touchend', event => {
         event.preventDefault();
         if (count <= 0) {
             count = 0;
@@ -222,7 +232,7 @@ if (window.screen.width <= 640) {
         currentHistory.classList.add('history_active');
     });
 
-    next.addEventListener('click', event => {
+    next.addEventListener('touchend', event => {
         event.preventDefault();
         if (count >= 4) {
             count = 4;
